@@ -113,15 +113,16 @@
             margin-bottom: 40px;
         }
 
-        /* 2. Portföljsektionen */
+        /* 2. Portföljsektionen - NY SÄKER FLEXBOX-LAYOUT */
         .portfolio-bg {
             background-color: var(--bg-light);
         }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .portfolio-flex {
+            display: flex;
+            justify-content: space-between;
             gap: 30px;
+            flex-wrap: wrap; /* Gör att de staplas om skärmen är för liten */
         }
 
         .portfolio-card {
@@ -131,6 +132,8 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
+            flex: 1;
+            min-width: 280px; /* Säkrar att korten har en bra minsta bredd */
             transition: transform 0.3s;
         }
 
@@ -268,12 +271,6 @@
         }
 
         /* Responsiv design */
-        @media (max-width: 900px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
@@ -305,7 +302,7 @@
         </div>
     </header>
 
-    <!-- Hero-sektion (Länken borttagen härifrån) -->
+    <!-- Hero-sektion -->
     <section id="hem" class="hero">
         <div class="container">
             <h1>Vi utvecklar långsiktiga värden i ägarledda bolag</h1>
@@ -313,11 +310,11 @@
         </div>
     </section>
 
-    <!-- 2. Portföljsektionen (Grid med 3 kort) -->
+    <!-- 2. Portföljsektionen (Flexbox med 3 garanterade kort) -->
     <section id="portfolj" class="portfolio-bg">
         <div class="container">
             <h2>Vår Portfölj</h2>
-            <div class="portfolio-grid">
+            <div class="portfolio-flex">
                 
                 <!-- Kort 1: Redovisning & Rådgivning -->
                 <div class="portfolio-card">
@@ -339,7 +336,7 @@
                     </div>
                 </div>
 
-                <!-- Kort 3: Smidesfirma & Skalskydd (HÄR ÄR KORTET OCH DEN NYA KNAPPEN) -->
+                <!-- Kort 3: Smidesfirma & Skalskydd -->
                 <div class="portfolio-card">
                     <img src="https://unsplash.com" alt="Smidesfirma & Skalskydd" class="card-img">
                     <div class="card-content">
