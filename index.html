@@ -128,14 +128,14 @@
             margin-bottom: 40px;
         }
 
-        /* 2. Portföljsektionen (Grid) */
+        /* 2. Portföljsektionen - FIXAD GRID-LAYOUT */
         .portfolio-bg {
             background-color: var(--bg-light);
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* Tvingar fram 3 kolumner på datorer */
             gap: 30px;
         }
 
@@ -283,6 +283,12 @@
         }
 
         /* Responsiv design för mindre skärmar */
+        @media (max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* Staplar korten på mindre skärmar så alla syns */
+            }
+        }
+
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
@@ -314,14 +320,14 @@
         </div>
     </header>
 
-    <!-- Hero-sektion med direktknapp -->
+    <!-- Hero-sektion med direktknapp till Smidesfirman -->
     <section id="hem" class="hero">
         <div class="container">
             <h1>Vi utvecklar långsiktiga värden i ägarledda bolag</h1>
             <p>Vi kombinerar kapital med aktivt engagemang och expertis för att transformera stabila verksamheter till framtidssäkra marknadsledare. Vår filosofi bygger på partnerskap, tillit och uthållig tillväxt.</p>
             <div class="hero-buttons">
                 <a href="#portfolj" class="btn">Se vår portfölj</a>
-                <a href="https://exempel-smide.se" target="_blank" class="btn btn-accent">Besök Smidesfirman ↗</a>
+                <a href="https://www.exempel-smide.se" target="_blank" class="btn btn-accent">Besök Smidesfirman ↗</a>
             </div>
         </div>
     </section>
@@ -347,7 +353,3 @@
                     <img src="https://unsplash.com" alt="Mekonomen Bilverkstad" class="card-img">
                     <div class="card-content">
                         <h3>Mekonomen Bilverkstad</h3>
-                        <p>En komplett och modern bilverkstad med ett starkt etablerat varumärke, hög teknisk kompetens och branschledande kundnöjdhet.</p>
-                        <a href="https://mekonomen.se" target="_blank" class="btn">Besök verkstaden ↗</a>
-                    </div>
-                </div>
