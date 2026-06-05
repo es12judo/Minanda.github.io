@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minanda Adviser & Investment</title>
     <style>
-        /* Grundläggande stilar och nollställning */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +13,8 @@
         }
 
         :root {
-            --primary-color: #1a2e40; /* Klassisk mörkblå */
-            --accent-color: #c5a059;  /* Elegant guld/beige accent */
+            --primary-color: #1a2e40;
+            --accent-color: #c5a059;
             --text-dark: #333333;
             --text-light: #ffffff;
             --bg-light: #f8f9fa;
@@ -38,7 +37,7 @@
             margin: 0 auto;
         }
 
-        /* 1. Toppmeny (Header) */
+        /* 1. Header */
         header {
             background-color: var(--text-light);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -78,7 +77,7 @@
             color: var(--accent-color);
         }
 
-        /* Hero-sektion */
+        /* Hero */
         .hero {
             background: linear-gradient(rgba(26, 46, 64, 0.75), rgba(26, 46, 64, 0.75)), url('https://unsplash.com') no-repeat center center/cover;
             color: var(--text-light);
@@ -101,28 +100,16 @@
             opacity: 0.9;
         }
 
-        /* Gemensamma sektionsstilar */
-        section {
+        /* 2. Portfölj med Grid layout */
+        .portfolio-bg {
+            background-color: var(--bg-light);
             padding: 80px 0;
         }
 
-        section h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-        }
-
-        /* 2. Portföljsektionen - NY SÄKER FLEXBOX-LAYOUT */
-        .portfolio-bg {
-            background-color: var(--bg-light);
-        }
-
-        .portfolio-flex {
-            display: flex;
-            justify-content: space-between;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            flex-wrap: wrap; /* Gör att de staplas om skärmen är för liten */
         }
 
         .portfolio-card {
@@ -132,13 +119,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            flex: 1;
-            min-width: 280px; /* Säkrar att korten har en bra minsta bredd */
-            transition: transform 0.3s;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
         }
 
         .card-img {
@@ -181,7 +161,18 @@
             background-color: var(--accent-color);
         }
 
-        /* 3. Investeringsfilosofi */
+        /* 3. Filosofi */
+        .philosophy-section {
+            padding: 80px 0;
+        }
+
+        .philosophy-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
         .philosophy-split {
             display: flex;
             align-items: center;
@@ -224,7 +215,7 @@
             color: var(--primary-color);
         }
 
-        /* 4. Sidfot (Footer) */
+        /* 4. Footer */
         footer {
             background-color: var(--primary-color);
             color: var(--text-light);
@@ -270,7 +261,12 @@
             color: #888;
         }
 
-        /* Responsiv design */
+        @media (max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
@@ -302,7 +298,7 @@
         </div>
     </header>
 
-    <!-- Hero-sektion -->
+    <!-- Hero-sektion (Helt tom på knappar nu) -->
     <section id="hem" class="hero">
         <div class="container">
             <h1>Vi utvecklar långsiktiga värden i ägarledda bolag</h1>
@@ -310,11 +306,11 @@
         </div>
     </section>
 
-    <!-- 2. Portföljsektionen (Flexbox med 3 garanterade kort) -->
+    <!-- 2. Portföljsektionen (Med exakt 3 kort bredvid varandra) -->
     <section id="portfolj" class="portfolio-bg">
         <div class="container">
-            <h2>Vår Portfölj</h2>
-            <div class="portfolio-flex">
+            <h2 style="text-align: center; font-size: 2rem; color: var(--primary-color); margin-bottom: 40px;">Vår Portfölj</h2>
+            <div class="portfolio-grid">
                 
                 <!-- Kort 1: Redovisning & Rådgivning -->
                 <div class="portfolio-card">
@@ -341,3 +337,5 @@
                     <img src="https://unsplash.com" alt="Smidesfirma & Skalskydd" class="card-img">
                     <div class="card-content">
                         <h3>Smidesfirma & Skalskydd</h3>
+                        <p>Innovativa säkerhetslösningar och mekaniskt skalskydd där traditionellt, högkvalitativt hantverk möter egenutvecklad teknik.</p>
+                        <a href="https://exempel-smide.se" target="_blank" class="btn">Besök Smidesfirman ↗</a>
