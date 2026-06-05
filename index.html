@@ -82,7 +82,7 @@
         .hero {
             background: linear-gradient(rgba(26, 46, 64, 0.75), rgba(26, 46, 64, 0.75)), url('https://unsplash.com') no-repeat center center/cover;
             color: var(--text-light);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
         }
 
@@ -97,8 +97,23 @@
         .hero p {
             font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
             opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #b08d4b;
         }
 
         /* Gemensamma sektionsstilar */
@@ -164,7 +179,7 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: var(--primary-color);
             color: var(--text-light);
             text-decoration: none;
@@ -299,11 +314,15 @@
         </div>
     </header>
 
-    <!-- Hero-sektion -->
+    <!-- Hero-sektion med den nya direktknappen -->
     <section id="hem" class="hero">
         <div class="container">
             <h1>Vi utvecklar långsiktiga värden i ägarledda bolag</h1>
             <p>Vi kombinerar kapital med aktivt engagemang och expertis för att transformera stabila verksamheter till framtidssäkra marknadsledare. Vår filosofi bygger på partnerskap, tillit och uthållig tillväxt.</p>
+            <div class="hero-buttons">
+                <a href="#portfolj" class="btn">Se vår portfölj</a>
+                <a href="https://exempel-smide.se" target="_blank" class="btn btn-accent">Besök Smidesfirman ↗</a>
+            </div>
         </div>
     </section>
 
@@ -331,11 +350,3 @@
                         <p>En komplett och modern bilverkstad med ett starkt etablerat varumärke, hög teknisk kompetens och branschledande kundnöjdhet.</p>
                         <a href="https://mekonomen.se" target="_blank" class="btn">Besök verkstaden ↗</a>
                     </div>
-                </div>
-
-                <!-- Kort 3: Smidesfirma & Skalskydd -->
-                <div class="portfolio-card">
-                    <img src="https://unsplash.com" alt="Smidesfirma & Skalskydd" class="card-img">
-                    <div class="card-content">
-                        <h3>Smidesfirma & Skalskydd</h3>
-                        <p>Innovativa säkerhetslösningar och mekaniskt skalskydd där traditionellt, högkvalitativt hantverk möter egenutvecklad teknik.</p>
