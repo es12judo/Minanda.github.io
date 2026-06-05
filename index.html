@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minanda Adviser & Investment</title>
+    <style>
+        /* Grundläggande stilar och nollställning */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a2e40; /* Klassisk mörkblå för investering */
+            --accent-color: #c5a059;  /* Elegant guld/beige accent */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 1. Toppmeny (Header) */
+        header {
+            background-color: var(--text-light);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero-sektion */
+        .hero {
+            background: linear-gradient(rgba(26, 46, 64, 0.75), rgba(26, 46, 64, 0.75)), url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Gemensamma sektionsstilar */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        /* 2. Portföljsektionen (Grid) */
+        .portfolio-bg {
+            background-color: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--text-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card-content p {
+            margin-bottom: 20px;
+            color: #666;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* 3. Investeringsfilosofi (Två kolumner) */
+        .philosophy-split {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .philosophy-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .philosophy-col img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .philosophy-list {
+            list-style: none;
+        }
+
+        .philosophy-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1rem;
+        }
+
+        .philosophy-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .philosophy-list strong {
+            color: var(--primary-color);
+        }
+
+        /* 4. Sidfot (Footer) */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-light);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #2a435c;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsiv design för mindre skärmar */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .philosophy-split {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Toppmeny (Header) -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Minanda</a>
+            <nav>
+                <ul>
+                    <li><a href="#hem">Hem</a></li>
+                    <li><a href="#om-oss">Om oss</a></li>
+                    <li><a href="#portfolj">Portfölj</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero-sektion -->
+    <section id="hem" class="hero">
+        <div class="container">
+            <h1>Vi utvecklar långsiktiga värden i ägarledda bolag</h1>
+            <p>Vi kombinerar kapital med aktivt engagemang och expertis för att transformera stabila verksamheter till framtidssäkra marknadsledare. Vår filosofi bygger på partnerskap, tillit och uthållig tillväxt.</p>
+        </div>
+    </section>
+
+    <!-- 2. Portföljsektionen -->
+    <section id="portfolj" class="portfolio-bg">
+        <div class="container">
+            <h2>Vår Portfölj</h2>
+            <div class="portfolio-grid">
+                
+                <!-- Kort 1: Redovisning & Rådgivning -->
+                <div class="portfolio-card">
+                    <img src="https://unsplash.com" alt="Redovisning & Rådgivning" class="card-img">
+                    <div class="card-content">
+                        <h3>Redovisning & Rådgivning</h3>
+                        <p>Modernt stöd med fokus på digitalisering, effektiva flöden och strategisk tillväxt för små och medelstora företag.</p>
+                        <a href="redovisning.html" class="btn">Läs mer</a>
+                    </div>
+                </div>
+
+                <!-- Kort 2: Mekonomen Bilverkstad -->
+                <div class="portfolio-card">
+                    <img src="https://unsplash.com" alt="Mekonomen Bilverkstad" class="card-img">
+                    <div class="card-content">
+                        <h3>Mekonomen Bilverkstad</h3>
+                        <p>En komplett och modern bilverkstad med ett starkt etablerat varumärke, hög teknisk kompetens och branschledande kundnöjdhet.</p>
+                        <a href="https://mekonomen.se" target="_blank" class="btn">Besök verkstaden ↗</a>
+                    </div>
+                </div>
+
+                <!-- Kort 3: Smidesfirma & Skalskydd -->
+                <div class="portfolio-card">
+                    <img src="https://unsplash.com" alt="Smidesfirma & Skalskydd" class="card-img">
+                    <div class="card-content">
+                        <h3>Smidesfirma & Skalskydd</h3>
+                        <p>Innovativa säkerhetslösningar och mekaniskt skalskydd där traditionellt, högkvalitativt hantverk möter egenutvecklad teknik.</p>
